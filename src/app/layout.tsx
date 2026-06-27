@@ -44,29 +44,27 @@ export default function RootLayout({
     <html lang="id" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}>
       <body className="bg-bg font-sans text-text-primary antialiased">
         <NavBar />
-        <main>{children}</main>
-        <footer className="border-t border-border">
-          <div className="mx-auto max-w-6xl px-8 py-16">
-            <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-text-muted">
-                &copy; {new Date().getFullYear()} {personal.name}
-              </p>
-              <div className="flex items-center gap-8">
-                <a
-                  href={personal.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[11px] font-semibold uppercase tracking-[0.2em] text-text-secondary transition-colors hover:text-accent"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href={`mailto:${personal.email}`}
-                  className="text-[11px] font-semibold uppercase tracking-[0.2em] text-text-secondary transition-colors hover:text-accent"
-                >
-                  Email
-                </a>
-              </div>
+        <main className="pb-14">{children}</main>
+        <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-bg/95 backdrop-blur-sm">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 md:px-8">
+            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.1em] text-text-muted md:text-[11px]">
+              &copy; {new Date().getFullYear()} {personal.name}
+            </p>
+            <div className="flex items-center gap-5">
+              <a
+                href={personal.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] font-semibold uppercase tracking-[0.2em] text-text-secondary transition-colors hover:text-accent md:text-[11px]"
+              >
+                LinkedIn
+              </a>
+              <a
+                href={`mailto:${personal.email}`}
+                className="text-[10px] font-semibold uppercase tracking-[0.2em] text-text-secondary transition-colors hover:text-accent md:text-[11px]"
+              >
+                Email
+              </a>
             </div>
           </div>
         </footer>

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { personal, navLinks } from "@/lib/content"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -27,6 +27,8 @@ export default function NavBar() {
   function toggle() {
     setOpen((v) => !v)
   }
+
+  const pointerRef = useRef(false)
 
   return (
     <>
@@ -59,8 +61,9 @@ export default function NavBar() {
 
           <button
             type="button"
-            onPointerDown={toggle}
-            className="relative z-20 flex h-12 w-12 items-center justify-center rounded-sm bg-surface/50 md:hidden"
+            onClick={toggle}
+            onPointerDown={() => { pointerRef.current = true }}
+            className="relative z-20 flex h-12 w-12 cursor-pointer items-center justify-center rounded-sm bg-surface/50 md:hidden active:bg-surface"
             style={{ touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}
             aria-label={open ? "Tutup menu" : "Buka menu"}
           >
