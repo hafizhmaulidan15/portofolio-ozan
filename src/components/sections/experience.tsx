@@ -1,49 +1,29 @@
 import { experiences } from "@/lib/content"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircle, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 
 export default function Experience() {
   return (
-    <>
-      <section className="relative overflow-hidden px-5 pt-28 pb-16 md:px-12 md:pt-36 md:pb-20 lg:px-16">
-        <div className="pointer-events-none absolute -right-40 top-0 h-[300px] w-[300px] rounded-full bg-gradient-to-bl from-burgundy/20 to-transparent blur-[100px]" />
-        <div className="mx-auto max-w-6xl">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-gold">
-            Pengalaman
-          </p>
-          <h2 className="mt-6 font-serif text-5xl font-black leading-[1] tracking-[-0.03em] md:mt-8 md:text-7xl lg:text-8xl">
-            Organisasi
-          </h2>
-        </div>
-      </section>
-      <section className="relative overflow-hidden px-5 pb-28 md:px-12 md:pb-36 lg:px-16">
-        <div className="pointer-events-none absolute -left-60 bottom-0 h-[350px] w-[350px] rounded-full bg-gradient-to-tr from-accent-muted/10 to-transparent blur-[100px]" />
-        <div className="mx-auto max-w-6xl">
+    <section className="px-5 pt-28 pb-28 md:px-12 md:pt-36 md:pb-36 lg:px-16">
+      <div className="mx-auto max-w-4xl">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">Pengalaman</p>
+        <div className="relative mt-8 md:mt-10">
+          <div className="absolute bottom-0 left-[18px] top-0 hidden w-px bg-accent/20 md:block" />
           <div className="space-y-0">
             {experiences.map((exp) => (
-              <div key={exp.id} className="group grid gap-4 border-t border-border/60 py-8 transition-all duration-500 md:grid-cols-3 md:py-10">
-                <div className="flex items-center gap-3 md:items-start">
-                  <FontAwesomeIcon icon={faCircle} className="h-2 w-2 text-accent/40 transition-all duration-500 group-hover:text-accent" />
-                  <div>
-                    <span className="font-mono text-2xl font-bold tracking-[-0.05em] text-accent md:text-3xl">
-                      {exp.duration}
-                    </span>
-                    <span className="ml-3 rounded-sm bg-surface px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.1em] text-text-muted md:ml-4 md:text-[10px]">
-                      {exp.type === "organization" ? "Org" : "Panitia"}
-                    </span>
-                  </div>
+              <div key={exp.id} className="group relative flex gap-4 border-t border-border/30 py-5 md:gap-6 md:py-6 md:pl-12">
+                <div className="hidden md:block">
+                  <div className="absolute left-[13px] top-[26px] h-3 w-3 rounded-full border-2 border-accent bg-bg transition-all group-hover:bg-accent" />
                 </div>
-                <div className="md:col-span-2">
-                  <h3 className="text-base font-bold text-text-primary transition-colors duration-500 group-hover:text-accent md:text-lg">
-                    {exp.role}
-                  </h3>
-                  <p className="mt-1 text-sm font-medium text-text-secondary">
-                    {exp.organization}
-                  </p>
-                  <ul className="mt-3 space-y-1.5 md:mt-4">
+                <div className="w-20 shrink-0 md:w-24">
+                  <p className="font-mono text-xs font-bold text-accent md:text-sm">{exp.duration}</p>
+                  <span className="mt-0.5 inline-block rounded-sm bg-surface px-1.5 py-0.5 font-mono text-[8px] font-semibold uppercase tracking-[0.1em] text-text-muted md:text-[9px]">{exp.type === "organization" ? "Org" : "Panitia"}</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-sm font-bold text-text-primary transition-colors group-hover:text-accent md:text-base">{exp.role}</h3>
+                  <p className="mt-0.5 text-xs text-text-secondary md:text-sm">{exp.organization}</p>
+                  <ul className="mt-2 space-y-1">
                     {exp.description.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm leading-relaxed text-text-muted transition-colors duration-500 group-hover:text-text-secondary">
-                        <FontAwesomeIcon icon={faChevronRight} className="mt-0.5 h-2.5 w-2.5 shrink-0 text-gold/40" />
+                      <li key={item} className="flex items-start gap-2 text-xs leading-relaxed text-text-muted md:text-sm">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold/40" />
                         {item}
                       </li>
                     ))}
@@ -53,7 +33,7 @@ export default function Experience() {
             ))}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }

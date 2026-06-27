@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { personal } from "@/lib/content"
-import SmoothScrollProvider from "@/components/smooth-scroll-provider"
 import NavBar from "@/components/nav-bar"
 
 const inter = Inter({
@@ -42,9 +41,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="id" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`} data-scroll-behavior="smooth">
+    <html lang="id" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}>
       <body className="bg-bg font-sans text-text-primary antialiased">
-        <SmoothScrollProvider>
         <NavBar />
         <main>{children}</main>
         <footer className="border-t border-border">
@@ -72,7 +70,6 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
-        </SmoothScrollProvider>
       </body>
     </html>
   )
